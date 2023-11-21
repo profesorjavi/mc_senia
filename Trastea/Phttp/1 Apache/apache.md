@@ -9,7 +9,7 @@ Para la realización de está práctica utilizaremos una máquina ubuntu server 
 En la máquina crearemmos dos usuarios; mortadelo y filemon. La contraseña se corresponderá con el nombre.
 
 ## Instalación
-
+Realiza la instalación de Apache
 ## Configuración inicial
 Crea un directorio en  /var/www/seniaTIC
 Crea una página WEB llamada senia.html que sera la página principal de la empresa.
