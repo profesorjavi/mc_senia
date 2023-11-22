@@ -31,4 +31,41 @@ Con esta herramienta podemos obtener también más información del servidor:
 * apache2ctl -S : Lista los sitios virtuales y las opciones de configuración.
 
 
+## Estructura de los ficheros de configuración
+
+El fichero principal de configuración de Apache2 es `/etc/apache2/apache2.conf`. En ese fichero se incluyen los ficheros que forman parte de la configuración de Apache2:
+
+	...
+	IncludeOptional mods-enabled/*.load
+	IncludeOptional mods-enabled/*.conf
+	...
+	Include ports.conf
+	...
+	IncludeOptional conf-enabled/*.conf
+	IncludeOptional sites-enabled/*.conf
+
+* Los ficheros que se añaden guardados en el directorio `mods-enabled` correponden a los módulos activos.
+* Los ficheros añadidos del directorio `sites-enabled` corresponden a la configuración de los sitios virtuales activos.
+* Del directorio `conf-enabled` añadimos ficheros de configuración adicionales.
+* Por último en el fichero `ports.conf` se especifica los puertos de escucha del servidor.
+
+## Opciones de configuración para los servidores virtuales
+
+Por defecto se indican las opciones de configuración del directorio `/var/www` y de todos sus subdirectorios, por lo tanto los `DocumentRoot` de los virtual host que se crean deben ser subdirectorios del este directorio, por lo tanto encontramos en el fichero `/etc/apache2/apache2.conf` lo siguiente:
+
+	<Directory /var/www/>
+	    Options Indexes FollowSymLinks
+	    AllowOverride None
+	    Require all granted
+	</Directory>
+
+Podemos indicar como directorio raíz de nuestros virtual host otro directorio (tenemos que descomentar):
+
+	#<Directory /srv/>
+	#    Options Indexes FollowSymLinks
+	#    AllowOverride None
+	#    Require all granted
+	#</Directory>
+
+
 
