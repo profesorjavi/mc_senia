@@ -44,7 +44,11 @@ Por defecto los errores de nuestro sitio virtual se guardan en /var/log/apache2/
 1. Prepara una página WEB que simule la web de la empresa con un par de páginas y que una de las páginas contenga a su vez un par de imagenes. 
    * Llama a la página principal senia.html. 
    * Aloja esta web en el directorio /var/www/seniaTIC
-2. Configura Apache para que cuando accedamos http://localhost nos muestre está página. 
+1. Haz una copia del archivo de configuración, habilitalo y deshabilita el sitio por defecto.
+   ```sh
+   cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/senia.conf
+   ```
+1. Configura Apache para que cuando accedamos http://localhost nos muestre está página. 
 > DocumentRoot
 
 > DirectoryIndex
